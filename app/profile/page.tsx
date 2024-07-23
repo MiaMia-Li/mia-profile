@@ -79,7 +79,7 @@ export default function Page() {
         <motion.h1
           className="text-2xl font-bold mb-6 md:text-3xl"
           variants={itemVariants}>
-          Hello, I'm MengYao Li 👋
+          Hello, I&apos;m MengYao Li 👋
         </motion.h1>
         <motion.div variants={itemVariants}>
           <Image src="/profile.png" width={150} height={150} alt="Avatar" />
