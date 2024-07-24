@@ -3,6 +3,8 @@ import { Inter } from "next/font/google";
 import { ThemeProvider } from "next-themes";
 import "./globals.css";
 import DarkModeToggle from "../components/DarkModeToggle";
+import Navbar from "@/components/NavBar";
+import NavBar from "../components/NavBar";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,7 +22,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <ThemeProvider attribute="class">
-          <DarkModeToggle />
+          <NavBar />
           {children}
         </ThemeProvider>
       </body>
