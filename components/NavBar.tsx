@@ -40,18 +40,19 @@ export default function NavBar() {
     <Navbar onMenuOpenChange={setIsMenuOpen}>
       <NavbarBrand>
         <Link href="/" className=" text-default-800 dark:text-white-100">
-          {/* <Logo /> */}hello
+          <Image src="/juicy.png" width={32} height={32} alt="juicy"></Image>
+          {/* <span className="text-2xl ml-4 text-orange-500">MiaMia</span> */}
         </Link>
       </NavbarBrand>
-      <NavbarContent className="hidden sm:flex gap-4" justify="center">
+      <NavbarContent className="hidden sm:flex gap-8" justify="center">
         {menuItems.map((item) => (
           <NavbarItem key={item.name} isActive={item.href === pathName}>
             <Link
-              className={
+              className={`text-xl ${
                 item.href === pathName
-                  ? "text-pink-500"
+                  ? "text-orange-500 font-bold"
                   : "text-default-foreground"
-              }
+              }`}
               href={item.href}>
               {item.name}
             </Link>
@@ -83,7 +84,7 @@ export default function NavBar() {
             <Link
               className={`w-full ${
                 item.href === pathName
-                  ? "text-pink-500"
+                  ? "text-orange-500"
                   : "text-default-foreground"
               }`}
               href={item.href}

@@ -35,11 +35,29 @@ export function getArticlesData(fileName: string, hasSuffix = false) {
   };
 }
 
-// 获取 _articles 目录下的所有文章
 export function getAllArticlesData() {
   const fileNames = fs.readdirSync(articlesDirectory);
   const allArticlesData = fileNames.map((fileName) => {
     return getArticlesData(fileName, true);
   });
   return allArticlesData;
+}
+
+export function getTagsWithArticleCount() {
+  const allArticlesData = getAllArticlesData();
+  const tagsCount: { [key: string]: number } = {};
+
+  allArticlesData.forEach(({ frontmatter }) => {
+    if (frontmatter.tags) {
+      frontmatter.tags.forEach((tag: string) => {
+        if (tagsCount[tag]) {
+          tagsCount[tag]++;
+        } else {
+          tagsCount[tag] = 1;
+        }
+      });
+    }
+  });
+
+  return Object.entries(tagsCount).map(([key, count]) => ({ key, count }));
 }

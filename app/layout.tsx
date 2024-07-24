@@ -1,12 +1,8 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import { ThemeProvider } from "next-themes";
 import "./globals.css";
-import DarkModeToggle from "../components/DarkModeToggle";
-import Navbar from "@/components/NavBar";
 import NavBar from "../components/NavBar";
-
-const inter = Inter({ subsets: ["latin"] });
+import { inter } from "@/app/ui/fonts";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -20,7 +16,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={`${inter.className} antialiased`}>
         <ThemeProvider attribute="class">
           <NavBar />
           {children}
