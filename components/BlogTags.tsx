@@ -8,7 +8,7 @@ interface TagItem {
 }
 
 interface BlogTagsProps {
-  onItemSelect: (...arg) => any;
+  onItemSelect: (key: string) => any;
   tags: TagItem[];
 }
 
@@ -26,8 +26,8 @@ const BlogTags: React.FC<BlogTagsProps> = ({ onItemSelect, tags }) => {
       variant="light"
       selectedKeys={selectedKeys}
       onAction={(key) => {
-        onItemSelect(key);
-        setSelectedKeys(key);
+        onItemSelect(String(key));
+        setSelectedKeys(String(key));
       }}>
       {allTags.map(({ key, count }) => {
         if (key == "all") {
