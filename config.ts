@@ -58,3 +58,21 @@ export const EXPERIENCES = [
       "Enhanced system performance and reliability through comprehensive merchant-side system reconstruction, component library development, and homepage optimization, leading to significant improvements in efficiency and customer service load reduction.",
   },
 ];
+
+export const DISH_LIST = [
+  {
+    title: "🥒 蒜片乳瓜",
+    img: "/dish/cucumber.jpg",
+    description: "Follow me on Twitter",
+  },
+  {
+    title: "🍳 糖醋鸡蛋",
+    img: "/dish/egg.jpg",
+    description: "Follow me on Twitter",
+  },
+  {
+    title: "🍜 螺狮粉",
+    img: "/dish/noodle.jpg",
+    description: "Follow me on Twitter",
+  },
+];

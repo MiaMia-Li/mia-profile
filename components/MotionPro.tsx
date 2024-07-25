@@ -1,9 +1,11 @@
 "use client";
 
-import Image from "next/image";
+// import Image from "next/image";
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import { SOCIAL_MEDIA } from "@/config";
+import { Link, Image } from "@nextui-org/react";
+import { RiArrowRightUpLine } from "react-icons/ri";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -72,13 +74,21 @@ const MotionPro: React.FC = () => {
       </motion.div>
       <motion.p
         variants={itemVariants}
-        className="text-2xl mb-5 mt-8 font-bold md:text-4xl">
+        className="text-xl mb-5 mt-8 font-bold md:text-2xl">
         👩‍💻 Developer
       </motion.p>
       <motion.p
         variants={itemVariants}
-        className="text-2xl font-bold md:text-4xl">
+        className="text-xl mb-5 font-bold md:text-2xl">
         📸 Photographer
+      </motion.p>
+      <motion.p
+        variants={itemVariants}
+        className="text-xl font-bold md:text-2xl">
+        👩‍🍳 Novice Chef{" "}
+        <Link showAnchorIcon href="/dish" anchorIcon={<RiArrowRightUpLine />}>
+          See my dishes
+        </Link>
       </motion.p>
 
       <motion.p variants={itemVariants} className="text-center my-6 md:text-lg">

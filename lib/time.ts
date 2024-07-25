@@ -9,5 +9,5 @@ export function formatDateTime(val: Date | string) {
   const minute = String(date.getMinutes()).padStart(2, "0");
   const second = String(date.getSeconds()).padStart(2, "0");
 
-  return `${year}-${month}-${day} ${hour}:${minute}:${second}`;
+  return `${year}-${month}-${day}`;
 }

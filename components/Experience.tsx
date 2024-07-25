@@ -20,9 +20,9 @@ const TimelineItem = ({
       <h3 className="text-lg md:text-xl font-bold mb-1">
         {role} @ {company}
       </h3>
-      <p className="text-xs md:text-sm text-gray-500 mb-1">{location}</p>
-      <p className="text-xs md:text-sm text-gray-700 mb-2">{period}</p>
-      <p className="text-xs md:text-sm text-gray-700">{description}</p>
+      <p className="text-xs md:text-sm text-default-600 mb-1">{location}</p>
+      <p className="text-xs md:text-sm text-default-600 mb-2">{period}</p>
+      <p className="text-xs md:text-sm text-default-800">{description}</p>
     </div>
   </div>
 );
@@ -30,9 +30,9 @@ const TimelineItem = ({
 export default function Experience() {
   return (
     <section>
-      <h2 className="text-2xl md:text-3xl font-bold mb-6">Experiences</h2>
+      <h2 className="text-xl md:text-2xl font-bold mb-6">Experiences</h2>
       <div className="relative">
-        <div className="absolute left-4 md:left-6 top-0 bottom-0 md:border-l-2 md:border-gray-300"></div>
+        <div className="absolute left-4 md:left-6 top-0 bottom-0"></div>
         {EXPERIENCES.map((exp, index) => (
           <TimelineItem key={index} {...exp} />
         ))}
