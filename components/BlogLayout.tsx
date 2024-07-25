@@ -1,4 +1,3 @@
-// components/BlogLayout.tsx
 import React from "react";
 import { MDXProvider } from "@mdx-js/react";
 import { components } from "./MDXComponents"; // 导入定义的组件

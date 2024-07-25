@@ -37,9 +37,9 @@ export default function NavBar() {
   const pathName = usePathname();
 
   return (
-    <Navbar onMenuOpenChange={setIsMenuOpen}>
-      <NavbarBrand>
-        <Link href="/" className=" text-default-800 dark:text-white-100">
+    <Navbar onMenuOpenChange={setIsMenuOpen} maxWidth="full">
+      <NavbarBrand className="flex-1">
+        <Link href="/" className="text-default-800 dark:text-white-100">
           <Image src="/juicy.png" width={32} height={32} alt="juicy"></Image>
           {/* <span className="text-2xl ml-4 text-orange-500">MiaMia</span> */}
         </Link>
@@ -48,10 +48,9 @@ export default function NavBar() {
         {menuItems.map((item) => (
           <NavbarItem key={item.name} isActive={item.href === pathName}>
             <Link
+              color="danger"
               className={`text-xl ${
-                item.href === pathName
-                  ? "text-orange-500 font-bold"
-                  : "text-default-foreground"
+                item.href === pathName ? "font-bold" : "text-default-foreground"
               }`}
               href={item.href}>
               {item.name}

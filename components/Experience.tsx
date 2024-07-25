@@ -29,7 +29,7 @@ const TimelineItem = ({
 
 export default function Experience() {
   return (
-    <section className="p-6 md:p-16">
+    <section>
       <h2 className="text-2xl md:text-3xl font-bold mb-6">Experiences</h2>
       <div className="relative">
         <div className="absolute left-4 md:left-6 top-0 bottom-0 md:border-l-2 md:border-gray-300"></div>

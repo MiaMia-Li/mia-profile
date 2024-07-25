@@ -7,7 +7,7 @@ import remarkGfm from "remark-gfm";
 const Page = async ({ params }: any) => {
   const { content, frontmatter, readingTime } = getArticlesData(params.slug);
   return (
-    <main className="container p-24">
+    <main className="container max-w-full px-6 md:px-24">
       <header className="py-6 mb-6">
         <h1 className="text-3xl font-semibold">{frontmatter.title}</h1>
         <p className="text-default-500">

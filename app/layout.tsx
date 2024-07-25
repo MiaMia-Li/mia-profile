@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { ThemeProvider } from "next-themes";
+import { NextUIProvider } from "@nextui-org/react";
 import "./globals.css";
 import NavBar from "../components/NavBar";
 import { inter } from "@/app/ui/fonts";
@@ -16,11 +17,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.className} antialiased`}>
-        <ThemeProvider attribute="class">
-          <NavBar />
-          {children}
-        </ThemeProvider>
+      <body className={`${inter.className} antialiased max-w-full`}>
+        <NextUIProvider>
+          <ThemeProvider attribute="class">
+            <div className="md:px-20 md:pt-10">
+              <NavBar />
+            </div>
+            <div className="px-6 md:px-32 md:mt-10 mt-6">{children}</div>
+          </ThemeProvider>
+        </NextUIProvider>
       </body>
     </html>
   );
