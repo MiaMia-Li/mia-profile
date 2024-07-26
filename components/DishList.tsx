@@ -22,7 +22,7 @@ const DishList: React.FC = () => {
               src={item.img}
             />
           </CardBody>
-          <CardFooter className="text-small flex-col">
+          <CardFooter className="text-small flex-col ">
             <b>{item.title}</b>
             <p className="text-default-500">{item.description}</p>
           </CardFooter>

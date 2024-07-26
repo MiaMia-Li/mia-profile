@@ -21,6 +21,9 @@
         bg-white;
   }
 }
+.toc-link {
+  color: #f31260;
+}
 
 body {
   /* color: rgb(var(--foreground-rgb));

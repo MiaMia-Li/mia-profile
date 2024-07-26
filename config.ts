@@ -63,16 +63,31 @@ export const DISH_LIST = [
   {
     title: "🥒 蒜片乳瓜",
     img: "/dish/cucumber.jpg",
-    description: "Follow me on Twitter",
+    description:
+      "新鲜黄瓜和蒜片的美妙邂逅，清爽脆嫩，蒜香扑鼻，一口咬下去，满口清香！",
   },
   {
     title: "🍳 糖醋鸡蛋",
     img: "/dish/egg.jpg",
-    description: "Follow me on Twitter",
+    description:
+      "煎炸后的鸡蛋遇上酸甜糖醋汁，外酥里嫩，酸甜可口，让你一吃就爱上！",
   },
   {
     title: "🍜 螺狮粉",
     img: "/dish/noodle.jpg",
-    description: "Follow me on Twitter",
+    description:
+      "广西柳州的经典美食，酸辣鲜香的螺蛳粉，配上丰富的配料，每一口都是舌尖上的旅行！",
+  },
+  {
+    title: "🥬🍳 韭菜鸡蛋",
+    img: "/dish/chive-eggs.jpg",
+    description:
+      "韭菜和鸡蛋的经典搭配，炒得嫩滑多汁，韭香四溢，是一道让人吃了还想再吃的家常菜！",
+  },
+  {
+    title: "🥙 凉拌木耳",
+    img: "/dish/fungus.jpg",
+    description:
+      "清爽的凉拌木耳，脆嫩可口，拌上调味料，每一口都让你觉得清新愉悦，是夏天的最佳搭档！",
   },
 ];

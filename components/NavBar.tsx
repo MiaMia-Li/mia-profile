@@ -9,10 +9,10 @@ import {
   Link,
   NavbarMenuToggle,
   NavbarMenu,
+  Image,
 } from "@nextui-org/react";
 import React from "react";
 import { useTheme } from "next-themes";
-import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { RiMoonLine, RiSunLine } from "react-icons/ri";
 
@@ -40,7 +40,7 @@ export default function NavBar() {
     <Navbar onMenuOpenChange={setIsMenuOpen} maxWidth="full">
       <NavbarBrand className="flex-1">
         <Link href="/" className="text-default-800 dark:text-white-100">
-          <Image src="avatar.svg" width={60} height={60} alt="juicy"></Image>
+          <Image src="/avatar.svg" width={60} height={60} alt="juicy"></Image>
           {/* <span className="text-2xl ml-4 text-orange-500">MiaMia</span> */}
         </Link>
       </NavbarBrand>

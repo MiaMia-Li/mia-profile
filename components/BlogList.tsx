@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import BlogTags from "./BlogTags";
-import { formatDateTime } from "@/lib/time";
+import { formatDate } from "@/lib/time";
 import Link from "next/link";
 import { Chip } from "@nextui-org/chip";
 import { RiClockwiseLine } from "react-icons/ri";
@@ -20,7 +20,7 @@ const BlogList: React.FC<BlogListProps> = ({ allArticles, tags }) => {
   const [articles, setArticles] = useState(allArticles);
   return (
     <main className="container flex flex-col md:flex-row md:gap-20">
-      <div className="w-full max-w-[260px] h-fit bg-gray-50 dark:bg-gray-800 px-1 py-2 rounded-small shadow-md">
+      <div className="w-full max-w-[260px] h-fit  px-1 py-2 rounded-small shadow-md">
         <BlogTags
           tags={tags}
           onItemSelect={(tag) => {
@@ -41,9 +41,7 @@ const BlogList: React.FC<BlogListProps> = ({ allArticles, tags }) => {
               <Link href={`/blog/${fileName}`}>
                 <div className="font-bold text-xl">{frontmatter.title}</div>
                 <p className="text-sm text-default-400 mt-2">
-                  <span className="mr-2">
-                    {formatDateTime(frontmatter.date)}
-                  </span>
+                  <span className="mr-2">{formatDate(frontmatter.date)}</span>
                   <span>{readingTime}</span>
                 </p>
                 <p className="text-base text-default-600 mt-2">
