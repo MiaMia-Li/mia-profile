@@ -15,7 +15,7 @@ const TimelineItem = ({
     {/* <div className="relative w-8 h-8 md:w-12 md:h-12 bg-blue-600 rounded-full flex items-center justify-center text-white">
       <span className="text-xs md:text-lg font-semibold">{company[0]}</span>
     </div> */}
-    <Image src={icon} alt={company} width={48} height={48} className="z-20" />
+    <Image src={icon} alt={company} width={48} height={48} />
     <div>
       <h3 className="text-lg md:text-xl font-bold mb-1">
         {role} @ {company}

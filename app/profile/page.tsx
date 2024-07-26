@@ -19,6 +19,7 @@ export default function Page() {
           alt="Oreo"
           width={200}
           height={200}
+          className="hidden sm:block"
         />
         <div className="flex-1">
           <p className="mb-4 md:text-medium">

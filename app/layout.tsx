@@ -59,7 +59,7 @@ export default function RootLayout({
             <div className="md:px-20 md:pt-10">
               <NavBar />
             </div>
-            <div className="px-6 md:px-60 md:mt-10 mt-6">{children}</div>
+            <div className="px-6 md:px-20 md:my-10 my-6">{children}</div>
           </ThemeProvider>
         </NextUIProvider>
       </body>

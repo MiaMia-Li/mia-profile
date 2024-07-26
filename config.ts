@@ -7,32 +7,32 @@ export const SOCIAL_MEDIA = [
   //   },
   {
     id: "twitter",
-    icon: "twitter.svg",
+    icon: "media/twitter.svg",
     href: "https://x.com/Sep_Miamia",
     description: "Follow me on Twitter",
   },
   {
     id: "linkedin",
-    icon: "linkedin.svg",
+    icon: "media/linkedin.svg",
     href: "https://www.linkedin.com/in/mengyao-li-software/",
     description: "Connect with me on LinkedIn",
   },
   {
     id: "instagram",
-    icon: "instagram.svg",
+    icon: "media/instagram.svg",
     href: "https://www.instagram.com/sep.miamia/",
     description: "Follow me on Instagram",
   },
 
   {
     id: "weibo",
-    icon: "weibo.svg",
+    icon: "media/weibo.svg",
     href: "https://m.weibo.cn/profile/2887635897",
     description: "Follow me on Instagram",
   },
   {
     id: "github",
-    icon: "github.svg",
+    icon: "media/github.svg",
     href: "https://github.com/MiaMia-Li",
     description: "Follow me on Github",
   },
@@ -40,7 +40,7 @@ export const SOCIAL_MEDIA = [
 
 export const EXPERIENCES = [
   {
-    icon: "kuaishou.svg",
+    icon: "media/kuaishou.svg",
     company: "Kuaishou Technology",
     location: "Beijing",
     role: "Software Engineer",
@@ -49,7 +49,7 @@ export const EXPERIENCES = [
       "Led a team to significantly enhance process efficiency and user experience through comprehensive front-end optimization and innovative application development, managing high-volume operations and improving cross-device compatibility.",
   },
   {
-    icon: "meituan.svg",
+    icon: "media/meituan.svg",
     company: "Meituan",
     location: "Beijing",
     role: "Software Engineer",

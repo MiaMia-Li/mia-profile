@@ -40,7 +40,7 @@ export default function NavBar() {
     <Navbar onMenuOpenChange={setIsMenuOpen} maxWidth="full">
       <NavbarBrand className="flex-1">
         <Link href="/" className="text-default-800 dark:text-white-100">
-          <Image src="/juicy.png" width={32} height={32} alt="juicy"></Image>
+          <Image src="avatar.svg" width={60} height={60} alt="juicy"></Image>
           {/* <span className="text-2xl ml-4 text-orange-500">MiaMia</span> */}
         </Link>
       </NavbarBrand>
@@ -83,7 +83,7 @@ export default function NavBar() {
             <Link
               className={`w-full ${
                 item.href === pathName
-                  ? "text-orange-500"
+                  ? "text-danger"
                   : "text-default-foreground"
               }`}
               href={item.href}
