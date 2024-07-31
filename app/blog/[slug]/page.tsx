@@ -1,19 +1,19 @@
 import { getArticlesData } from "@/lib/mdx";
-import { formatDateTime, formatDate } from "@/lib/time";
+import { formatDate } from "@/lib/time";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import rehypePrism from "rehype-prism-plus";
-import rehypeCodeTitles from "rehype-code-titles";
 import remarkMath from "remark-math";
 import remarkGfm from "remark-gfm";
 import rehypeSlug from "rehype-slug";
-import rehypePrettyCode from "rehype-pretty-code";
 import ScrollToTop from "@/components/ScrollToTop";
 import toc from "@jsdevtools/rehype-toc";
 import User from "@/components/User";
 import { Divider, Link } from "@nextui-org/react";
 import { RiArrowLeftLine } from "react-icons/ri";
+import Comments from "@/components/Comments";
+import React from "react";
 
-const Page = async ({ params }: any) => {
+const Page: React.FC = async ({ params }: any) => {
   const { content, frontmatter, readingTime } = getArticlesData(params.slug);
   return (
     <main className="container max-w-full">
@@ -75,6 +75,7 @@ const Page = async ({ params }: any) => {
           }}
         />
       </article>
+      <Comments />
     </main>
   );
 };

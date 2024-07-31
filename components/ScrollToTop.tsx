@@ -34,7 +34,7 @@ const ScrollToTop = () => {
         <button
           onClick={scrollToTop}
           className="p-2 bg-blue-500 text-white rounded-full shadow-lg hover:opacity-80 transition duration-300">
-          <RiArrowUpFill />
+          <RiArrowUpFill style={{ width: 32, height: 32 }} />
         </button>
       )}
     </div>
