@@ -23,7 +23,7 @@ authors: ["default"]
 1.依次比较相邻的两个数，如果第一个比第二个小，不变。如果第一个比第二个大，调换顺序。**一轮下来，最后一个是最大的数**。  
 2.对除了最后一个之外的数重复第一步，直到只剩一个数
 
-```javascript
+```js {1,3-4}
 function BubbleSort(arr) {
   for (var i = 0; i < arr.length - 1; i++) {
     for (var j = 0; j < arr.length - 1 - i; j++) {
@@ -89,7 +89,7 @@ function InsertSort(arr) {
 }
 ```
 
-## 希尔排序
+## 希尔排序 Shell Sort
 
 希尔排序是插入排序的一种更高效率的实现，核心在于间隔序列的设定。既可以提前设定好间隔序列，也可以动态定义间隔序列。
 

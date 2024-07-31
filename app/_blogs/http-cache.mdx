@@ -39,7 +39,7 @@ HTTP 缓存有多种规则，根据是否需要重新向服务器发起请求来
 对于强制缓存来说，响应 header 中会有两个字段来标明失效规则（**Expires/Cache-Control**）
 如图，Google 开发者工具中，可看到对于强制缓存生效时，网络请求的情况。
 
-![](/static/images/disk-cache.png)
+![](/images/disk-cache.png)
 
 #### Expires
 
@@ -62,7 +62,7 @@ Cache-Control 是最重要的规则。常见的取值有 private、public、no-c
 | no-store    | 缓存不应存储有关客户端请求或服务器响应的任何内容                                                    |
 
 一个例子:
-![](/static/images/max-age.png)
+![](/images/max-age.png)
 图中 Cache-Control 仅指定了 max-age，所以默认为 private，缓存时间为 2592000 秒（30 天）
 也就是说，在 30 天内再次请求这条数据，都会直接获取缓存数据库中的数据，直接使用。
 
@@ -80,9 +80,9 @@ Cache-Control 是最重要的规则。常见的取值有 private、public、no-c
 浏览器第一次请求数据时，服务器会将缓存标识与数据一起返回给客户端，客户端将二者备份至缓存数据库中。  
 再次请求数据时，客户端将备份的缓存标识发送给服务器，服务器根据缓存标识进行判断，判断成功后，返回 304 状态码，通知客户端比较成功，可以使用缓存数据。  
 第一次请求  
-![](/static/images/cache200.png)  
+![](/images/cache200.png)  
 第二次请求  
-![](/static/images/cache304.png)
+![](/images/cache304.png)
 
 通过两图的对比，我们可以很清楚的发现，在对比缓存生效时，状态码为 304，并且报文大小和请求时间大大减少。
 原因是，服务端在进行标识比较后，只返回 header 部分，通过状态码通知客户端使用缓存，不再需要将报文主体部分返回给客户端。
@@ -92,7 +92,7 @@ Cache-Control 是最重要的规则。常见的取值有 private、public、no-c
 ##### Last-Modified
 
 服务器在响应请求时，告诉浏览器资源的最后修改时间。  
-![](/static/images/last-modified.png)
+![](/images/last-modified.png)
 
 ##### If-Modified-Since
 
@@ -100,7 +100,7 @@ Cache-Control 是最重要的规则。常见的取值有 private、public、no-c
 服务器收到请求后发现有头 If-Modified-Since 则与被请求资源的最后修改时间进行比对。  
 若资源的最后修改时间大于 If-Modified-Since，说明资源又被改动过，则响应整片资源内容，返回状态码 200；  
 若资源的最后修改时间小于或等于 If-Modified-Since，说明资源无新修改，则响应 HTTP 304，告知浏览器继续使用所保存的 cache。  
-![](/static/images/if-modified-since.png)
+![](/images/if-modified-since.png)
 
 #### Etag / If-None-Match
 
@@ -109,7 +109,7 @@ Cache-Control 是最重要的规则。常见的取值有 private、public、no-c
 ##### Etag
 
 服务器响应请求时，告诉浏览器当前资源在服务器的唯一标识（生成规则由服务器决定）。  
-![](/static/images/etag.png)
+![](/images/etag.png)
 
 ##### If-None-Match
 
@@ -117,7 +117,7 @@ Cache-Control 是最重要的规则。常见的取值有 private、public、no-c
 服务器收到请求后发现有头 If-None-Match 则与被请求资源的唯一标识进行比对，  
 不同，说明资源又被改动过，则响应整片资源内容，返回状态码 200；  
 相同，说明资源无新修改，则响应 HTTP 304，告知浏览器继续使用所保存的 cache。  
-![](/static/images/if-none-match.png)
+![](/images/if-none-match.png)
 
 ## 总结
 

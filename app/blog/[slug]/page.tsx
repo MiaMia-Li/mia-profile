@@ -2,6 +2,8 @@ import { getArticlesData } from "@/lib/mdx";
 import { formatDateTime, formatDate } from "@/lib/time";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import rehypePrism from "rehype-prism-plus";
+import rehypeCodeTitles from "rehype-code-titles";
+import remarkMath from "remark-math";
 import remarkGfm from "remark-gfm";
 import rehypeSlug from "rehype-slug";
 import rehypePrettyCode from "rehype-pretty-code";
@@ -41,15 +43,22 @@ const Page = async ({ params }: any) => {
           options={{
             parseFrontmatter: true,
             mdxOptions: {
+              remarkPlugins: [remarkGfm, remarkMath],
               rehypePlugins: [
                 rehypePrism,
                 rehypeSlug,
-                [
-                  rehypePrettyCode,
-                  {
-                    theme: "github-dark-dimmed",
-                  },
-                ],
+                // rehypeCodeTitles,
+                // rehypeHighlight,
+                // // rehypePrettyCode,
+                // [
+                //   rehypePrettyCode,
+                //   {
+                //     theme: vitesse,
+                //     // Keep the background or use a custom background color?
+                //     keepBackground: true,
+                //     defaultLang: "plaintext",
+                //   },
+                // ],
                 [
                   toc,
 
