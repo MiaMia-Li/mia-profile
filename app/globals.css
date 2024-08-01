@@ -17,6 +17,7 @@
 }
 @layer base {
   body {
+    min-height: 100vh;
     @apply dark:bg-black
     bg-gray-50;
   }
@@ -27,10 +28,8 @@
     position: fixed;
     left: 5rem;
     top: 14rem;
-    max-width: 50rem;
-    /* max-height: 50rem; */
+    max-width: 12rem;
     overflow-y: scroll;
-    overflow-x: hidden;
   }
   nav.toc ol {
     padding-inline-start: 0;

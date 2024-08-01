@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
+
 import { ThemeProvider } from "next-themes";
 import { NextUIProvider } from "@nextui-org/react";
 import "./globals.css";
 import NavBar from "../components/NavBar";
 import { inter } from "@/app/ui/fonts";
+import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
   alternates: {
@@ -61,6 +63,7 @@ export default function RootLayout({
               <NavBar />
             </div>
             <div className="px-6 md:px-20 md:my-10 my-6">{children}</div>
+            <Footer />
           </ThemeProvider>
         </NextUIProvider>
       </body>

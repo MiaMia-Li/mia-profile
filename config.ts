@@ -1,3 +1,11 @@
+import {
+  RiTwitterXFill,
+  RiLinkedinBoxFill,
+  RiInstagramFill,
+  RiWeiboFill,
+  RiGithubFill,
+} from "react-icons/ri";
+
 export const SOCIAL_MEDIA = [
   //   {
   //     id: "whatsapp",
@@ -10,18 +18,21 @@ export const SOCIAL_MEDIA = [
     icon: "media/twitter.svg",
     href: "https://x.com/Sep_Miamia",
     description: "Follow me on Twitter",
+    svg: RiTwitterXFill,
   },
   {
     id: "linkedin",
     icon: "media/linkedin.svg",
     href: "https://www.linkedin.com/in/mengyao-li-software/",
     description: "Connect with me on LinkedIn",
+    svg: RiLinkedinBoxFill,
   },
   {
     id: "instagram",
     icon: "media/instagram.svg",
     href: "https://www.instagram.com/sep.miamia/",
     description: "Follow me on Instagram",
+    svg: RiInstagramFill,
   },
 
   {
@@ -29,12 +40,14 @@ export const SOCIAL_MEDIA = [
     icon: "media/weibo.svg",
     href: "https://m.weibo.cn/profile/2887635897",
     description: "Follow me on Instagram",
+    svg: RiWeiboFill,
   },
   {
     id: "github",
     icon: "media/github.svg",
     href: "https://github.com/MiaMia-Li",
     description: "Follow me on Github",
+    svg: RiGithubFill,
   },
 ];
 

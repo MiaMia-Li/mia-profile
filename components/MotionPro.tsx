@@ -113,8 +113,8 @@ const MotionPro: React.FC = () => {
             <Image
               src={social.icon}
               alt={social.description}
-              width={48}
-              height={48}
+              width={36}
+              height={36}
               className="hover:opacity-60 transition-opacity duration-300"
             />
           </motion.a>
