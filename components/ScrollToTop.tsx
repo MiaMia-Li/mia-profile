@@ -1,7 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
-import { RiArrowUpCircleFill } from "react-icons/ri";
-import { RiArrowUpFill } from "react-icons/ri";
+import { RiArrowDropUpLine } from "react-icons/ri";
 
 const ScrollToTop = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -33,8 +32,8 @@ const ScrollToTop = () => {
       {isVisible && (
         <button
           onClick={scrollToTop}
-          className="p-2 bg-blue-500 text-white rounded-full shadow-lg hover:opacity-80 transition duration-300">
-          <RiArrowUpFill style={{ width: 32, height: 32 }} />
+          className="p-2 bg-danger-400 text-white rounded-full shadow-lg hover:opacity-80 transition duration-300">
+          <RiArrowDropUpLine style={{ width: 32, height: 32 }} />
         </button>
       )}
     </div>

@@ -6,12 +6,12 @@ categories: ES6
 tags: ["ES6"]
 ---
 
-### 什么是 Promise
+## 什么是 Promise
 
 Promise 是异步编程的一种解决方案，它有三种状态，分别是**pending-进行中**、**resolved-已完成**、**rejected-已失败**  
 当 Promise 的状态又 pending 转变为 resolved 或 rejected 时，会执行相应的方法，并且状态一旦改变，就无法再次改变状态，这也是它名字 promise-承诺的由来
 
-### Promise 的基本用法
+## Promise 的基本用法
 
 Promise 构造函数接受一个函数作为参数，该函数的两个参数分别是 resolve 和 reject。它们是两个函数，由 JavaScript 引擎提供，不用自己部署。  
 resolve 函数的作用是，将 Promise 对象的状态从“未完成”变为“成功”（即从 pending 变为 resolved），在异步操作成功时调用，并将异步操作的结果，作为参数传递出去；reject 函数的作用是，将 Promise 对象的状态从“未完成”变为“失败”（即从 pending 变为 rejected），在异步操作失败时调用，并将异步操作报出的错误，作为参数传递出去。  
@@ -36,7 +36,7 @@ promise.then(function(value) {
 });
 ```
 
-#### 异步加载图片
+### 异步加载图片
 
 ```javascript
 //异步加载图片
@@ -54,7 +54,7 @@ function loadImageAsync(url){
 }
 ```
 
-#### 实现 Ajax 操作
+### 实现 Ajax 操作
 
 ```javascript
 const getJSON = function (url) {
@@ -172,6 +172,6 @@ getNum().then(
 );
 ```
 
-### Promise 的作用
+## Promise 的作用
 
 `Promise`的出现主要是解决地狱回调的问题，比如你需要结果需要请求很多个接口，这些接口的参数需要另外那个的接口返回的数据作为依赖，这样就需要我们一层嵌套一层，但是有了 Promise 我们就无需嵌套

@@ -24,12 +24,15 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "Mia.blog",
-    description: "The React Framework for the Web",
+    description:
+      "Hello, I'm Mia. 👋 I'm a cheerful software engineer with 5+ years of front-end experience. I love exploring new tech, optimizing code, and working with teams to create awesome projects!",
     url: "https://mia-profile.vercel.app/",
     siteName: "Mia.blog",
     images: [
       {
         url: "https://mia-profile.vercel.app/og.png", // Must be an absolute URL
+        width: 1200,
+        height: 630,
       },
     ],
     locale: "en_US",

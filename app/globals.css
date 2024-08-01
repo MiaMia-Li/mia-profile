@@ -18,22 +18,49 @@
 @layer base {
   body {
     @apply dark:bg-black
-        bg-white;
+    bg-gray-50;
   }
 }
-.toc-link {
-  color: #f31260;
+@media (min-width: 768px) {
+  nav.toc {
+    display: block !important;
+    position: fixed;
+    left: 5rem;
+    top: 14rem;
+    max-width: 50rem;
+    /* max-height: 50rem; */
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
+  nav.toc ol {
+    padding-inline-start: 0;
+  }
+  nav.toc li {
+    list-style: none;
+  }
+  nav.toc a {
+    text-decoration: none;
+    color: var(--nextui-default-900);
+    font-size: small;
+  }
+}
+nav.toc {
+  display: none;
 }
 
-body {
-  /* color: rgb(var(--foreground-rgb));
+/* .toc-link {
+  color: #f31260;
+} */
+
+/* body {
+  color: rgb(var(--foreground-rgb));
   background: linear-gradient(
       to bottom,
       transparent,
       rgb(var(--background-end-rgb))
     )
-    rgb(var(--background-start-rgb)); */
-}
+    rgb(var(--background-start-rgb));
+} */
 
 @layer utilities {
   .text-balance {
