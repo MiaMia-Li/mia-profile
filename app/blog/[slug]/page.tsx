@@ -39,7 +39,7 @@ const Page: React.FC = async ({ params }: any) => {
       <Divider />
       <article className="prose !max-w-none dark:prose-invert">
         <MDXRemote
-          source={<div className="content">{content}</div>}
+          source={content}
           options={{
             parseFrontmatter: true,
             mdxOptions: {
@@ -47,18 +47,6 @@ const Page: React.FC = async ({ params }: any) => {
               rehypePlugins: [
                 rehypePrism,
                 rehypeSlug,
-                // rehypeCodeTitles,
-                // rehypeHighlight,
-                // // rehypePrettyCode,
-                // [
-                //   rehypePrettyCode,
-                //   {
-                //     theme: vitesse,
-                //     // Keep the background or use a custom background color?
-                //     keepBackground: true,
-                //     defaultLang: "plaintext",
-                //   },
-                // ],
                 [
                   toc,
 
