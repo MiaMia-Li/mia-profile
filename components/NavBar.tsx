@@ -59,13 +59,7 @@ export default function NavBar() {
       }}>
       <NavbarBrand className="flex-1">
         <Link href="/" className="text-default-800 dark:text-white-100">
-          <Image
-            src="/avatar.svg"
-            // width={60}
-            // height={60}
-            alt="juicy"
-            className="shadow-sm rounded-full h-12 w-12"></Image>
-          {/* <span className="text-2xl ml-4 text-orange-500">MiaMia</span> */}
+          <Image src="/avatar.svg" alt="juicy" width={50}></Image>
         </Link>
       </NavbarBrand>
       <NavbarContent
