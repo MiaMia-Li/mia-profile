@@ -6,8 +6,14 @@ import NavBar from "../components/NavBar";
 import { inter } from "@/app/ui/fonts";
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://mia-profile.vercel.app/",
+    types: {
+      "application/rss+xml": [{ url: "feed.xml", title: "RSS" }],
+    },
+  },
   generator: "Next.js",
-  applicationName: "Next.js",
+  applicationName: "Mia-blog",
   keywords: ["Next.js", "React", "JavaScript"],
   authors: [{ name: "MiaMia", url: "" }],
   creator: "MengYao LI",
@@ -17,21 +23,13 @@ export const metadata: Metadata = {
     telephone: false,
   },
   openGraph: {
-    title: "Next.js",
+    title: "Mia.blog",
     description: "The React Framework for the Web",
-    url: "https://nextjs.org",
-    siteName: "Next.js",
+    url: "https://mia-profile.vercel.app/",
+    siteName: "Mia.blog",
     images: [
       {
-        url: "https://nextjs.org/og.png", // Must be an absolute URL
-        width: 800,
-        height: 600,
-      },
-      {
-        url: "https://nextjs.org/og-alt.png", // Must be an absolute URL
-        width: 1800,
-        height: 1600,
-        alt: "My custom alt",
+        url: "https://mia-profile.vercel.app/og.png", // Must be an absolute URL
       },
     ],
     locale: "en_US",
@@ -42,7 +40,7 @@ export const metadata: Metadata = {
     title: "MiaMiaLi-Blog",
     description: "MiaMiaLi-Blog",
     creator: "@MiaMia",
-    images: ["https://nextjs.org/og.png"], // Must be an absolute URL
+    images: ["https://mia-profile.vercel.app/og.png"], // Must be an absolute URL
   },
 };
 

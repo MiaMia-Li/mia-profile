@@ -39,7 +39,7 @@ const Page: React.FC = async ({ params }: any) => {
       <Divider />
       <article className="prose !max-w-none dark:prose-invert">
         <MDXRemote
-          source={content}
+          source={<div className="content">{content}</div>}
           options={{
             parseFrontmatter: true,
             mdxOptions: {

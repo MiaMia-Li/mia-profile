@@ -14,7 +14,7 @@ import {
 import React from "react";
 import { useTheme } from "next-themes";
 import { usePathname } from "next/navigation";
-import { RiMoonLine, RiSunLine } from "react-icons/ri";
+import { RiMoonLine, RiSunLine, RiRssLine } from "react-icons/ri";
 
 const menuItems = [
   {
@@ -59,6 +59,9 @@ export default function NavBar() {
         ))}
       </NavbarContent>
       <NavbarContent justify="end">
+        <Link href="/feed.xml" color="foreground">
+          <RiRssLine style={{ width: 24, height: 24 }} />
+        </Link>
         <button
           onClick={() =>
             theme === "dark" ? setTheme("light") : setTheme("dark")
