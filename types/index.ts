@@ -6,5 +6,4 @@ export interface Blog {
   excerpt?: string; // 简短的摘录或简介
   tags?: string[]; // 标签
   layout?: string; // 布局名称
-  toc?: Array<{ title: string; slug: string }>; // 目录（如果需要）
 }
