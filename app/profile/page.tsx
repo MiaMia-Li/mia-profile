@@ -1,6 +1,5 @@
 "use client";
 
-// import Image from "next/image";
 import Experience from "../../components/Experience";
 import { Divider, Image } from "@nextui-org/react";
 import { SOCIAL_MEDIA } from "@/config";

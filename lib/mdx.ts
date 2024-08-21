@@ -40,7 +40,14 @@ export function getAllArticlesData() {
   const allArticlesData = fileNames.map((fileName) => {
     return getArticlesData(fileName, true);
   });
-  return allArticlesData;
+
+  // 按时间排序：新到旧
+  return allArticlesData.sort((a, b) => {
+    return (
+      new Date(b.frontmatter.date).getTime() -
+      new Date(a.frontmatter.date).getTime()
+    );
+  });
 }
 
 export function getTagsWithArticleCount() {

@@ -19,7 +19,7 @@ const Page: React.FC = async ({ params }: any) => {
   return (
     <main className="container overflow-hidden max-w-full">
       <ScrollToTop />
-      <div className="md:fixed top-48 left-20">
+      <div className="md:fixed top-48 left-52">
         <User />
       </div>
       <div className="md:pl-60">
