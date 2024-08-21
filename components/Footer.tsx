@@ -9,7 +9,7 @@ const Footer = () => {
     return null;
   }
   return (
-    <div className="px-6 md:px-20 md:flex-row gap-6 flex flex-col items-center justify-between border-t border-zinc-100 pb-16 pt-10 dark:border-zinc-700/40">
+    <div className="px-6 py-6 md:px-20 md:py-12 md:flex-row gap-6 flex flex-col items-center justify-between border-t border-zinc-100 dark:border-zinc-700/40">
       {/* <div className="mb-3 flex space-x-4">
         {SOCIAL_MEDIA.map((social) => {
           const IconComponent = social.svg;

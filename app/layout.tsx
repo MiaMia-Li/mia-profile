@@ -57,8 +57,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${inter.className} antialiased w-full flex justify-center`}>
+      <body className={`antialiased w-full flex justify-center`}>
         <div className="min-h-screen md:mx-20 lg:mx-32 w-full bg-white ring-1 ring-zinc-100 dark:bg-zinc-900 dark:ring-zinc-300/20">
           <NextUIProvider>
             <ThemeProvider attribute="class">
