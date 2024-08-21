@@ -192,6 +192,11 @@ export default function Nav() {
           {menuItems.map((item, index) => (
             <li key={`${item}-${index}`}>
               <Link
+                onClick={() =>
+                  setTimeout(() => {
+                    setIsMenuOpen(false);
+                  }, 200)
+                }
                 href={item.href}
                 className={`block text-lg hover:text-danger ${
                   item.href === pathName

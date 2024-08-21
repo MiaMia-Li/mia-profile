@@ -14,12 +14,12 @@ const TimelineItem = ({
   <div className="flex flex-col md:flex-row items-start mb-8 last:mb-0 gap-5">
     <Image src={icon} alt={company} width={48} height={48} />
     <div>
-      <h3 className="text-lg md:text-xl font-bold mb-1">
+      <h3 className="text-xl font-bold mb-1">
         {role} @ {company}
       </h3>
-      <p className="text-xs md:text-sm text-default-600 mb-1">{location}</p>
-      <p className="text-xs md:text-sm text-default-600 mb-2">{period}</p>
-      <p className="text-xs md:text-sm text-default-800">{description}</p>
+      <p className="text-sm text-default-600 mb-1">{location}</p>
+      <p className="text-sm text-default-600 mb-2">{period}</p>
+      <p className="text-medium text-default-800">{description}</p>
     </div>
   </div>
 );

@@ -9,9 +9,9 @@ import { RiMailSendLine } from "react-icons/ri";
 export default function Page() {
   return (
     <div className="min-h-screen flex flex-col overflow-x-hidden sm:mt-32 mt-16">
-      <div className="mb-10 md:mb-24 flex flex-col md:flex-row md:gap-12 md:items-start ">
+      <div className="mb-10 md:mb-24 flex flex-col md:flex-row md:gap-12 md:items-start">
         <div>
-          <h2 className="text-4xl font-bold tracking-tight sm:text-5xl text-default-800 mb-6 md:mb-12">
+          <h2 className="text-4xl font-bold tracking-tight sm:text-5xl text-default-800 mb-6 md:mb-12 md:max-w-[50%]">
             I’m Mia, Seeking new adventures.
           </h2>
           <p className="mb-4 md:mb-10 md:text-medium text-default-600">
@@ -27,14 +27,14 @@ export default function Page() {
           </p>
           {/* <p className="md:text-medium"> 👉My good friend, a cat named Oreo.</p> */}
         </div>
-        <div className="flex-shrink-0">
+        <div className="flex-auto">
           <Image
             isZoomed
             shadow="md"
             src="/oreo.jpg"
             alt="Oreo"
-            width={300}
-            height={300}
+            width="auto"
+            height="auto"
             className="hidden sm:block"
           />
           <div className="mb-3 flex flex-col gap-6 mt-10">
