@@ -1,20 +1,14 @@
 "use client";
-
-import {
-  Navbar,
-  NavbarBrand,
-  NavbarContent,
-  NavbarItem,
-  NavbarMenuItem,
-  Link,
-  NavbarMenuToggle,
-  NavbarMenu,
-  Image,
-} from "@nextui-org/react";
 import React from "react";
 import { useTheme } from "next-themes";
 import { usePathname } from "next/navigation";
-import { RiMoonLine, RiSunLine, RiRssLine } from "react-icons/ri";
+import {
+  RiMoonLine,
+  RiSunLine,
+  RiRssLine,
+  RiArrowDownSLine,
+} from "react-icons/ri";
+import Link from "next/link";
 
 const menuItems = [
   {
@@ -22,43 +16,40 @@ const menuItems = [
     href: "/",
   },
   {
-    name: "Blog",
+    name: "Articles",
     href: "/blog",
   },
   {
     name: "About",
     href: "/profile",
   },
+  {
+    name: "Project",
+    href: "/project",
+  },
 ];
 
-export default function NavBar() {
+export default function Nav() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   const { theme, setTheme } = useTheme();
   const pathName = usePathname();
+  React.useEffect(() => {
+    // 当菜单打开时，禁用页面滚动
+    if (isMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+
+    // 清理副作用
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isMenuOpen]);
 
   return (
-    <Navbar
-      className="bg-transparent"
-      onMenuOpenChange={setIsMenuOpen}
-      maxWidth="full"
-      classNames={{
-        item: [
-          "flex",
-          "relative",
-          "h-full",
-          "items-center",
-          "data-[active=true]:text-danger]",
-          "data-[active=true]:after:content-['']",
-          "data-[active=true]:after:absolute",
-          "data-[active=true]:after:bottom-0",
-          "data-[active=true]:after:left-[20px]",
-          "data-[active=true]:after:right-[20px]",
-          "data-[active=true]:after:h-[2px]",
-          "data-[active=true]:after:rounded-[2px]",
-          "data-[active=true]:after:bg-danger",
-        ],
-      }}>
-      <NavbarBrand className="flex-1">
+    <div className="bg-transparent flex justify-between items-center py-1 px-6 md:px-0">
+      <div className="">
         <Link href="/" className="text-default-800 dark:text-white-100">
           <svg
             width="50"
@@ -162,62 +153,75 @@ export default function NavBar() {
             />
           </svg>
         </Link>
-      </NavbarBrand>
-      <NavbarContent
-        className="hidden md:flex h-fit rounded-full bg-white/90 px-3 text-sm font-medium text-zinc-800 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur dark:bg-zinc-800/90 dark:text-zinc-200 dark:ring-white/10"
-        justify="center">
-        <div className="flex bg-transparent px-3 text-sm font-medium">
+      </div>
+      <nav className="pointer-events-auto hidden md:block">
+        <ul className="hidden md:flex h-fit rounded-full justify-center bg-white/90 px-3 text-sm font-medium text-zinc-800 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur dark:bg-zinc-800/90 dark:text-zinc-200 dark:ring-white/10">
           {menuItems.map((item) => (
-            <NavbarItem key={item.name} isActive={item.href === pathName}>
+            <li key={item.name}>
               <Link
-                color="foreground"
-                className={`relative font-normal block whitespace-nowrap px-3 py-2 text-zinc-600 dark:text-zinc-200 transition !hover:text-danger ${
-                  item.href === pathName ? "text-danger font-semibold" : ""
+                className={`relative block px-3 py-2 transition hover:text-danger ${
+                  item.href === pathName
+                    ? "text-danger font-semibold after:content-[''] after:absolute after:left-0 after:right-0 after:bottom-0 after:h-[1px] after:bg-gradient-to-r after:from-transparent after:via-danger-500 after:to-transparent"
+                    : ""
                 }`}
                 href={item.href}>
                 {item.name}
               </Link>
-            </NavbarItem>
+            </li>
           ))}
-        </div>
-      </NavbarContent>
-      <NavbarContent justify="end">
+        </ul>
+      </nav>
+      <div className="flex justify-end items-center gap-2">
+        <button
+          onTouchEnd={() => {
+            console.log("--isMenuOpen", isMenuOpen);
+            setIsMenuOpen(!isMenuOpen);
+          }}
+          aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+          className="sm:hidden group flex items-center rounded-full bg-white/90 px-4 py-2 text-sm font-medium text-zinc-800 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur dark:bg-zinc-800/90 dark:text-zinc-200 dark:ring-white/10 dark:hover:ring-white/20">
+          Menu
+          <RiArrowDownSLine
+            className={`transition-transform ${isMenuOpen ? "rotate-180" : ""}`}
+          />
+        </button>
         <Link
           href="/feed.xml"
           color="foreground"
-          className="h-10 w-10 flex justify-center rounded-full bg-gradient-to-b from-zinc-50/50 to-white/90 text-sm shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur transition duration-300 dark:from-zinc-900/50 dark:to-zinc-800/90 dark:ring-white/10 dark:hover:ring-white/20 ">
+          className="block group rounded-full bg-white/90 hover:text-danger-500 p-2 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur transition dark:bg-zinc-800/90 dark:ring-white/10 dark:hover:ring-white/20">
           <RiRssLine />
         </Link>
         <button
-          className="h-10 w-10 flex justify-center items-center rounded-full bg-gradient-to-b from-zinc-50/50 to-white/90 text-sm shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur transition duration-300 dark:from-zinc-900/50 dark:to-zinc-800/90 dark:ring-white/10 dark:hover:ring-white/20 "
+          className="group rounded-full bg-white/90 hover:text-danger-500 p-2 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur transition dark:bg-zinc-800/90 dark:ring-white/10 dark:hover:ring-white/20"
           onClick={() =>
             theme === "dark" ? setTheme("light") : setTheme("dark")
           }>
           {theme === "light" ? <RiMoonLine /> : <RiSunLine />}
         </button>
-      </NavbarContent>
-      <NavbarMenuToggle
-        aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-        className="sm:hidden"
-      />
-      <NavbarMenu className="sm:hidden">
-        {menuItems.map((item, index) => (
-          <NavbarMenuItem
-            key={`${item}-${index}`}
-            isActive={item.href === pathName}>
-            <Link
-              className={`w-full ${
-                item.href === pathName
-                  ? "text-danger"
-                  : "text-default-foreground"
-              }`}
-              href={item.href}
-              size="lg">
-              {item.name}
-            </Link>
-          </NavbarMenuItem>
-        ))}
-      </NavbarMenu>
-    </Navbar>
+      </div>
+
+      <div
+        className={`fixed inset-x-0 top-[64px] bg-white/95 dark:bg-zinc-900/95 transition-[max-height] ease-in-out overflow-hidden ${
+          isMenuOpen ? "max-h-screen bottom-0 z-20" : "max-h-0 top-0"
+        }`}>
+        <ul
+          className={`${
+            isMenuOpen ? "opacity-100" : "opacity-0"
+          } flex flex-col space-y-2 p-4 transition-transform-opacity `}>
+          {menuItems.map((item, index) => (
+            <li key={`${item}-${index}`}>
+              <Link
+                href={item.href}
+                className={`block text-lg hover:text-danger ${
+                  item.href === pathName
+                    ? "text-danger font-semibold"
+                    : "text-zinc-800 dark:text-zinc-200"
+                }`}>
+                {item.name}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
   );
 }

@@ -19,7 +19,7 @@
   body {
     min-height: 100vh;
     @apply dark:bg-black
-    bg-gray-50;
+    bg-zinc-50;
   }
 }
 @media (min-width: 768px) {

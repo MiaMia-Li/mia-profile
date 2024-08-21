@@ -4,6 +4,7 @@ import { ThemeProvider } from "next-themes";
 import { NextUIProvider } from "@nextui-org/react";
 import "./globals.css";
 import NavBar from "../components/NavBar";
+import Nav from "@/components/Nav";
 import { inter } from "@/app/ui/fonts";
 import Footer from "@/components/Footer";
 
@@ -56,16 +57,19 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.className} antialiased max-w-full`}>
-        <NextUIProvider>
-          <ThemeProvider attribute="class">
-            <div className="md:px-20 md:pt-10">
-              <NavBar />
-            </div>
-            <div className="px-6 md:px-20 md:my-10 my-6">{children}</div>
-            <Footer />
-          </ThemeProvider>
-        </NextUIProvider>
+      <body
+        className={`${inter.className} antialiased w-full flex justify-center`}>
+        <div className="min-h-screen md:mx-20 lg:mx-32 w-full bg-white ring-1 ring-zinc-100 dark:bg-zinc-900 dark:ring-zinc-300/20">
+          <NextUIProvider>
+            <ThemeProvider attribute="class">
+              <div className="md:px-20 md:pt-10">
+                <Nav />
+              </div>
+              <div className="px-6 md:px-20 md:my-10 my-6">{children}</div>
+              <Footer />
+            </ThemeProvider>
+          </NextUIProvider>
+        </div>
       </body>
     </html>
   );
