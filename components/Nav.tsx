@@ -9,25 +9,7 @@ import {
   RiArrowDownSLine,
 } from "react-icons/ri";
 import Link from "next/link";
-
-const menuItems = [
-  {
-    name: "Home",
-    href: "/",
-  },
-  {
-    name: "Articles",
-    href: "/blog",
-  },
-  {
-    name: "About",
-    href: "/profile",
-  },
-  {
-    name: "Project",
-    href: "/project",
-  },
-];
+import { menuItems } from "@/lib/const";
 
 export default function Nav() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);

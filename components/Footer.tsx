@@ -2,14 +2,15 @@
 import { SOCIAL_MEDIA } from "@/config";
 import { Link } from "@nextui-org/react";
 import { usePathname } from "next/navigation";
+import { menuItems } from "@/lib/const";
 const Footer = () => {
   const pathName = usePathname();
   if (pathName === "/") {
     return null;
   }
   return (
-    <div className="flex flex-col items-center my-6">
-      <div className="mb-3 flex space-x-4">
+    <div className="px-6 md:px-20 md:flex-row gap-6 flex flex-col items-center justify-between border-t border-zinc-100 pb-16 pt-10 dark:border-zinc-700/40">
+      {/* <div className="mb-3 flex space-x-4">
         {SOCIAL_MEDIA.map((social) => {
           const IconComponent = social.svg;
           return (
@@ -24,13 +25,28 @@ const Footer = () => {
             </Link>
           );
         })}
+      </div> */}
+      <div>
+        <ul className="flex gap-x-6">
+          {menuItems.map((item, index) => (
+            <li key={`${item}-${index}`}>
+              <Link
+                href={item.href}
+                className={`block text-sm hover:text-danger ${
+                  item.href === pathName
+                    ? "text-danger font-semibold"
+                    : "text-default-800"
+                }`}>
+                {item.name}
+              </Link>
+            </li>
+          ))}
+        </ul>
       </div>
-      <div className="mb-2 flex space-x-2 text-sm  text-default-500">
-        <div>MiaMia</div>
-        <div> • </div>
-        <div>{new Date().getFullYear()}</div>
-        <div> • </div>
-        <div>Mia Blog</div>
+      <div className="mb-2 flex space-x-2 text-sm  text-default-600">
+        <span>© MiaMia</span>
+        <span>{new Date().getFullYear()}</span>
+        <span>. All rights reserved.</span>
       </div>
     </div>
   );
