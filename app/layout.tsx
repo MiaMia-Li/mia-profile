@@ -6,6 +6,7 @@ import "./globals.css";
 import NavBar from "../components/NavBar";
 import Nav from "@/components/Nav";
 import { inter } from "@/app/ui/fonts";
+import { Analytics } from "@vercel/analytics/react";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
@@ -16,8 +17,8 @@ export const metadata: Metadata = {
     },
   },
   generator: "Next.js",
-  applicationName: "Mia-blog",
-  keywords: ["Next.js", "React", "JavaScript"],
+  applicationName: "MengYao.blog",
+  keywords: ["MengYao Li", "MengYao", "Meituan", "Experience", "Software"],
   authors: [{ name: "MiaMia", url: "" }],
   creator: "MengYao LI",
   formatDetection: {
@@ -30,7 +31,7 @@ export const metadata: Metadata = {
     description:
       "Hello, I'm Mia. 👋 I'm a cheerful software engineer with 5+ years of front-end experience. I love exploring new tech, optimizing code, and working with teams to create awesome projects!",
     url: "https://mia-profile.vercel.app/",
-    siteName: "Mia.blog",
+    siteName: "MengYao.blog",
     images: [
       {
         url: "https://mia-profile.vercel.app/og.png", // Must be an absolute URL
@@ -43,9 +44,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "MiaMiaLi-Blog",
-    description: "MiaMiaLi-Blog",
-    creator: "@MiaMia",
+    title: "MengYao.Blog",
+    description: "MengYao.Blog",
+    creator: "@MengYao",
     images: ["https://mia-profile.vercel.app/og.png"], // Must be an absolute URL
   },
 };
@@ -69,6 +70,7 @@ export default function RootLayout({
             </ThemeProvider>
           </NextUIProvider>
         </div>
+        <Analytics />
       </body>
     </html>
   );
