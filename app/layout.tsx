@@ -18,7 +18,14 @@ export const metadata: Metadata = {
   },
   generator: "Next.js",
   applicationName: "MengYao.blog",
-  keywords: ["MengYao Li", "MengYao", "Meituan", "Experience", "Software"],
+  keywords: [
+    "MengYao Li",
+    "MengYao",
+    "Meituan",
+    "Experience",
+    "Software",
+    "Developer",
+  ],
   authors: [{ name: "MiaMia", url: "" }],
   creator: "MengYao LI",
   formatDetection: {
@@ -27,9 +34,9 @@ export const metadata: Metadata = {
     telephone: false,
   },
   openGraph: {
-    title: "Mia.blog",
+    title: "MengYao.blog",
     description:
-      "Hello, I'm Mia. 👋 I'm a cheerful software engineer with 5+ years of front-end experience. I love exploring new tech, optimizing code, and working with teams to create awesome projects!",
+      "Hello, I'm MengYao. 👋 I'm a cheerful software engineer with 5+ years of front-end experience. I love exploring new tech, optimizing code, and working with teams to create awesome projects!",
     url: "https://mia-profile.vercel.app/",
     siteName: "MengYao.blog",
     images: [
@@ -45,7 +52,8 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "MengYao.Blog",
-    description: "MengYao.Blog",
+    description:
+      "Hello, I'm MengYao. 👋 I'm a cheerful software engineer with 5+ years of front-end experience. I love exploring new tech, optimizing code, and working with teams to create awesome projects!",
     creator: "@MengYao",
     images: ["https://mia-profile.vercel.app/og.png"], // Must be an absolute URL
   },
