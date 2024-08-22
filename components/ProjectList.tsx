@@ -5,7 +5,7 @@ import Link from "next/link";
 // import Image from "next/image";
 import { RiExternalLinkFill } from "react-icons/ri";
 
-const BlogList: React.FC<> = () => {
+const BlogList: React.FC = () => {
   return (
     <div className="grid md:grid-cols-3 sm:grid-cols-2">
       {PROJECT_LIST.map((item) => {
