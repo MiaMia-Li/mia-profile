@@ -16,7 +16,7 @@ import { useTheme } from "next-themes";
 import { usePathname } from "next/navigation";
 import { RiMoonLine, RiSunLine, RiRssLine } from "react-icons/ri";
 
-const menuItems = [
+const NAV_LIST = [
   {
     name: "Home",
     href: "/",
@@ -167,7 +167,7 @@ export default function NavBar() {
         className="hidden md:flex h-fit rounded-full bg-white/90 px-3 text-sm font-medium text-zinc-800 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur dark:bg-zinc-800/90 dark:text-zinc-200 dark:ring-white/10"
         justify="center">
         <div className="flex bg-transparent px-3 text-sm font-medium">
-          {menuItems.map((item) => (
+          {NAV_LIST.map((item) => (
             <NavbarItem key={item.name} isActive={item.href === pathName}>
               <Link
                 color="foreground"
@@ -201,7 +201,7 @@ export default function NavBar() {
         className="sm:hidden"
       />
       <NavbarMenu className="sm:hidden">
-        {menuItems.map((item, index) => (
+        {NAV_LIST.map((item, index) => (
           <NavbarMenuItem
             key={`${item}-${index}`}
             isActive={item.href === pathName}>

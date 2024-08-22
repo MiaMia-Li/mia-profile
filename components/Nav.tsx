@@ -3,13 +3,13 @@ import React from "react";
 import { useTheme } from "next-themes";
 import { usePathname } from "next/navigation";
 import {
-  RiMoonLine,
+  RiMoonClearLine,
   RiSunLine,
   RiRssLine,
   RiArrowDownSLine,
 } from "react-icons/ri";
 import Link from "next/link";
-import { menuItems } from "@/lib/const";
+import { NAV_LIST } from "@/lib/const";
 
 export default function Nav() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
@@ -138,7 +138,7 @@ export default function Nav() {
       </div>
       <nav className="pointer-events-auto hidden md:block">
         <ul className="hidden md:flex h-fit rounded-full justify-center bg-white/90 px-3 text-sm font-medium text-zinc-800 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur dark:bg-zinc-800/90 dark:text-zinc-200 dark:ring-white/10">
-          {menuItems.map((item) => (
+          {NAV_LIST.map((item) => (
             <li key={item.name}>
               <Link
                 className={`relative block px-3 py-2 transition hover:text-danger ${
@@ -156,7 +156,6 @@ export default function Nav() {
       <div className="flex justify-end items-center gap-2">
         <button
           onTouchEnd={() => {
-            console.log("--isMenuOpen", isMenuOpen);
             setIsMenuOpen(!isMenuOpen);
           }}
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
@@ -177,7 +176,7 @@ export default function Nav() {
           onClick={() =>
             theme === "dark" ? setTheme("light") : setTheme("dark")
           }>
-          {theme === "light" ? <RiMoonLine /> : <RiSunLine />}
+          {theme === "light" ? <RiMoonClearLine /> : <RiSunLine />}
         </button>
       </div>
 
@@ -189,7 +188,7 @@ export default function Nav() {
           className={`${
             isMenuOpen ? "opacity-100" : "opacity-0"
           } flex flex-col space-y-2 p-4 transition-transform-opacity `}>
-          {menuItems.map((item, index) => (
+          {NAV_LIST.map((item, index) => (
             <li key={`${item}-${index}`}>
               <Link
                 onClick={() =>

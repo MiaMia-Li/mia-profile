@@ -94,7 +94,7 @@ const BlogList: React.FC<BlogListProps> = ({ allArticles, tags }) => {
                   </svg>
                   <span>{readingTime}</span>
                 </p>
-                <p className="text-sm text-default-600 mt-2">
+                <p className="text-medium text-default-600 mt-2">
                   {frontmatter.summary}
                 </p>
                 {/* <div className="flex gap-2 mt-3">
