@@ -7,7 +7,7 @@ import { RiExternalLinkFill } from "react-icons/ri";
 
 const BlogList: React.FC = () => {
   return (
-    <div className="grid md:grid-cols-3 sm:grid-cols-2">
+    <div className="grid sm:grid-cols-2">
       {PROJECT_LIST.map((item) => {
         const { name, desc, img, ico, href } = item;
         return (
@@ -15,7 +15,7 @@ const BlogList: React.FC = () => {
             key={name}
             className="p-6 transition sm:rounded-2xl min-h-40 flex flex-col dark:hover:bg-zinc-800/50 hover:bg-zinc-100/50">
             {/* <Image src={img} alt={name} /> */}
-            <p className="flex items-center text-lg font-semibold gap-2 mb-4 text-default-800">
+            <p className="flex items-center text-xl font-semibold gap-2 mb-4 text-default-800">
               <Image src={ico} alt={name} width={24} height={24} />
               <span>{name}</span>
             </p>
