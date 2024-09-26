@@ -1,8 +1,10 @@
 import fs from "fs";
 import path from "path";
 //@ts-ignore
+
 import Exif from "exif";
 const ExifImage = Exif.ExifImage;
+import { ImageData } from "@/types/index";
 
 // 将快门速度转换为分数形式
 function convertShutterSpeed(shutterSpeedValue: number): string {
@@ -19,10 +21,10 @@ export async function getImgExif() {
 
   console.log("--imagesPath", imagesPath, imageFiles);
 
-  const images = await Promise.all(
+  const images: ImageData[] = await Promise.all(
     imageFiles.map(
       (file) =>
-        new Promise((resolve, reject) => {
+        new Promise<ImageData>((resolve, reject) => {
           const imagePath = path.join(imagesPath, file);
           const imageBuffer = fs.readFileSync(imagePath);
 

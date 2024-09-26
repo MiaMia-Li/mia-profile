@@ -11,9 +11,9 @@ export interface Blog {
 export interface ImageData {
   src: string;
   exif: {
-    ISO: number;
-    aperture: number;
-    shutterSpeed: string;
-    focalLength: number;
+    ISO: number | string;
+    aperture: number | string;
+    shutterSpeed: number | string;
+    focalLength: number | string;
   };
 }
