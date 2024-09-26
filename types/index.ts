@@ -7,3 +7,13 @@ export interface Blog {
   tags?: string[]; // 标签
   layout?: string; // 布局名称
 }
+
+export interface ImageData {
+  src: string;
+  exif: {
+    ISO: number;
+    aperture: number;
+    shutterSpeed: string;
+    focalLength: number;
+  };
+}

@@ -1,16 +1,7 @@
 "use client";
 
 import { Card, CardFooter, Image, Button } from "@nextui-org/react";
-
-// 定义接口类型
-interface ImageData {
-  src: string;
-  exif: {
-    ISO: number;
-    aperture: number;
-    shutterSpeed: string;
-  };
-}
+import { ImageData } from "@/types/index";
 
 export default function Gallery({ images }: { images: ImageData[] }) {
   return (

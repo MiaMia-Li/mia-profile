@@ -1,5 +1,6 @@
 import fs from "fs";
 import path from "path";
+//@ts-ignore
 import Exif from "exif";
 const ExifImage = Exif.ExifImage;
 
@@ -18,18 +19,21 @@ export async function getImgExif() {
 
   console.log("--imagesPath", imagesPath, imageFiles);
 
-  const images: ImageData[] = await Promise.all(
+  const images = await Promise.all(
     imageFiles.map(
       (file) =>
-        new Promise<ImageData>((resolve, reject) => {
+        new Promise((resolve, reject) => {
           const imagePath = path.join(imagesPath, file);
           const imageBuffer = fs.readFileSync(imagePath);
 
           // 异步读取 EXIF 数据
           try {
-            new ExifImage({ image: imageBuffer }, function (error, exifData) {
+            new ExifImage({ image: imageBuffer }, function (
+              error: any,
+              exifData: any
+            ) {
               if (error) {
-                console.log("Error: " + error.message);
+                // console.log("Error: " + error.message);
                 resolve({
                   src: `/journey/${file}`,
                   exif: {
@@ -57,7 +61,7 @@ export async function getImgExif() {
               }
             });
           } catch (error) {
-            console.log("Error: " + error.message);
+            // console.log("Error: " + error.message);
             resolve({
               src: `/journey/${file}`,
               exif: {

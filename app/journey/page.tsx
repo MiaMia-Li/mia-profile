@@ -4,10 +4,11 @@ import { Listbox, ListboxItem } from "@nextui-org/react";
 import { useState } from "react";
 import { getImgExif } from "@/lib/image";
 import Gallary from "@/components/Gallary";
+import { ImageData } from "@/types/index";
 
 // 服务器端数据获取函数
 async function fetchData() {
-  const allImages = await getImgExif();
+  const { allImages } = (await fetchData()) as { allImages: ImageData[] };
   return { allImages };
 }
 export default async function Home() {
