@@ -28,7 +28,7 @@ export default function Experience() {
   return (
     <section>
       <h2 className="text-2xl md:text-4xl md:mb-12 font-bold mb-6">
-        Experiences
+        Experience
       </h2>
       <div className="relative">
         <div className="absolute left-4 md:left-6 top-0 bottom-0"></div>

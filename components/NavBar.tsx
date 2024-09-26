@@ -15,21 +15,7 @@ import React from "react";
 import { useTheme } from "next-themes";
 import { usePathname } from "next/navigation";
 import { RiMoonLine, RiSunLine, RiRssLine } from "react-icons/ri";
-
-const NAV_LIST = [
-  {
-    name: "Home",
-    href: "/",
-  },
-  {
-    name: "Blog",
-    href: "/blog",
-  },
-  {
-    name: "About",
-    href: "/profile",
-  },
-];
+import { NAV_LIST } from "@/lib/const";
 
 export default function NavBar() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);

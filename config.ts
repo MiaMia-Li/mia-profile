@@ -27,21 +27,21 @@ export const SOCIAL_MEDIA = [
     description: "Connect with me on LinkedIn",
     svg: RiLinkedinBoxFill,
   },
-  {
-    id: "instagram",
-    icon: "media/instagram.svg",
-    href: "https://www.instagram.com/sep.miamia/",
-    description: "Follow me on Instagram",
-    svg: RiInstagramFill,
-  },
+  // {
+  //   id: "instagram",
+  //   icon: "media/instagram.svg",
+  //   href: "https://www.instagram.com/sep.miamia/",
+  //   description: "Follow me on Instagram",
+  //   svg: RiInstagramFill,
+  // },
 
-  {
-    id: "weibo",
-    icon: "media/weibo.svg",
-    href: "https://m.weibo.cn/profile/2887635897",
-    description: "Follow me on Instagram",
-    svg: RiWeiboFill,
-  },
+  // {
+  //   id: "weibo",
+  //   icon: "media/weibo.svg",
+  //   href: "https://m.weibo.cn/profile/2887635897",
+  //   description: "Follow me on Instagram",
+  //   svg: RiWeiboFill,
+  // },
   {
     id: "github",
     icon: "media/github.svg",
@@ -55,18 +55,18 @@ export const EXPERIENCES = [
   {
     icon: "media/kuaishou.svg",
     company: "Kuaishou Technology",
-    location: "Beijing",
+    location: "Beijing,China",
     role: "Software Engineer",
-    period: "September 2020 - May 2024",
+    period: "Sep 2020 - May 2024",
     description:
       "Led a team to significantly enhance process efficiency and user experience through comprehensive front-end optimization and innovative application development, managing high-volume operations and improving cross-device compatibility.",
   },
   {
     icon: "media/meituan.svg",
     company: "Meituan",
-    location: "Beijing",
+    location: "Beijing,China",
     role: "Software Engineer",
-    period: "April 2019 - September 2020",
+    period: "Apr 2019 - Sep 2020",
     description:
       "Enhanced system performance and reliability through comprehensive merchant-side system reconstruction, component library development, and homepage optimization, leading to significant improvements in efficiency and customer service load reduction.",
   },
