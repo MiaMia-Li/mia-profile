@@ -9,34 +9,22 @@ import { RiMailSendLine } from "react-icons/ri";
 export default function Page() {
   return (
     <div className="min-h-screen flex flex-col overflow-x-hidden sm:mt-32 mt-16">
-      <div className="mb-10 md:mb-24 flex flex-col md:flex-row md:gap-12 md:items-start">
+      <div className="mb-10 md:mb-24 flex flex-col md:flex-row md:gap-6 md:items-start">
         <div>
-          <h2 className="text-4xl font-bold tracking-tight sm:text-5xl text-default-800 mb-6 md:mb-12 md:max-w-[50%]">
-            I’m Mia, Seeking new adventures.
+          <h2 className="text-4xl font-bold tracking-tight sm:text-5xl text-default-800 mb-4 md:mb-6">
+            I’m MengYao, Seeking new adventures.
           </h2>
-          <p className="mb-4 md:mb-10 md:text-medium text-default-600">
+          <p className="mb-2 md:mb-4 md:text-medium text-default-600">
             I am a seasoned Software Engineer with over five years of experience
             at big internet companies. My expertise lies in full-stack
             development with a strong focus on front-end technologies such as
             React, Vue, and TypeScript.
           </p>
-          <p className="mb-4 md:mb-10 md:text-medium text-default-600">
+          <p className="mb-2 md:mb-4 md:text-medium text-default-600">
             Currently residing in Singapore, developing independently, and
             actively seeking job opportunities after resigning from a position
             in China.
           </p>
-          {/* <p className="md:text-medium"> 👉My good friend, a cat named Oreo.</p> */}
-        </div>
-        <div className="flex-auto">
-          <Image
-            isZoomed
-            shadow="md"
-            src="/oreo.jpg"
-            alt="Oreo"
-            width="auto"
-            height="auto"
-            className="hidden sm:block"
-          />
           <div className="mb-3 flex flex-col gap-6 mt-10">
             {SOCIAL_MEDIA.filter((item) =>
               ["github", "twitter", "linkedin"].includes(item.id)
@@ -55,7 +43,7 @@ export default function Page() {
                 </Link>
               );
             })}
-            <Divider />
+            {/* <Divider /> */}
             <a
               href={`mailto:sept.miamia@gmail.com`}
               className="flex gap-2 items-center text-default-600 font-semibold hover:text-danger text-sm">
@@ -99,6 +87,17 @@ export default function Page() {
               <span>sept.miamia@gmail.com</span>
             </a>
           </div>
+        </div>
+        <div>
+          <Image
+            isZoomed
+            shadow="md"
+            src="/images/withcat.jpg"
+            alt="mia"
+            width="auto"
+            height="auto"
+            className="hidden sm:block"
+          />
         </div>
       </div>
       <Experience />
