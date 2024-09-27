@@ -10,7 +10,7 @@ const Footer = () => {
   }
   return (
     <div className="px-6 py-6 md:px-20 md:py-12 md:flex-row gap-6 flex flex-col items-center justify-between border-t border-zinc-100 dark:border-zinc-700/40">
-      <div>
+      <nav>
         <ul className="flex gap-x-6">
           {NAV_LIST.map((item, index) => (
             <li key={`${item}-${index}`}>
@@ -24,7 +24,7 @@ const Footer = () => {
             </li>
           ))}
         </ul>
-      </div>
+      </nav>
       <div className="mb-2 flex space-x-2 text-sm  text-default-600">
         <span>© MiaMia</span>
         <span>{new Date().getFullYear()}</span>

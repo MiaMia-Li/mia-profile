@@ -19,7 +19,7 @@ export async function getImgExif() {
     .readdirSync(imagesPath)
     .filter((file) => /\.(jpg|jpeg|png|gif)$/.test(file));
 
-  console.log("--imagesPath", imagesPath, imageFiles);
+  // console.log("--imagesPath", imagesPath, imageFiles);
 
   const images: ImageData[] = await Promise.all(
     imageFiles.map(
