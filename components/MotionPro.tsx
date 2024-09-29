@@ -86,9 +86,9 @@ const MotionPro: React.FC = () => {
         variants={itemVariants}
         className="text-xl font-bold md:text-2xl">
         👩‍🍳 Novice Chef{" "}
-        <Link showAnchorIcon href="/dish" anchorIcon={<RiArrowRightUpLine />}>
+        {/* <Link showAnchorIcon href="/dish" anchorIcon={<RiArrowRightUpLine />}>
           See my dishes
-        </Link>
+        </Link> */}
       </motion.p>
 
       <motion.p variants={itemVariants} className="text-center my-6 md:text-lg">
