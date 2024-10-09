@@ -19,10 +19,10 @@ const Page: React.FC = async ({ params }: any) => {
   return (
     <main className="container overflow-hidden max-w-full">
       <ScrollToTop />
-      <div className="md:fixed top-48 left-52">
+      {/* <div className="md:fixed top-48 left-52">
         <User />
-      </div>
-      <div className="md:pl-60">
+      </div> */}
+      <div>
         <article className="prose !max-w-none dark:prose-invert ">
           <header>
             <Link href="/blog" className="text-medium mb-5" color="danger">

@@ -1,0 +1,284 @@
+---
+title: How would you create a Analytics SDK used by webpages
+date: "2024-07-18"
+tags: ["System Design", "Pre interview"]
+summary: "How would you create a Analytics SDK used by webpages"
+---
+
+## How would you create a Analytics SDK used by webpages
+
+### 1. **Define Requirements and Features**
+
+- **Tracking**: Page views, custom events, user interactions (e.g., clicks, form submissions), and errors.
+- **User Identification**: Ability to track anonymous users and support user identification.
+- **Session Management**: Manage user sessions to track behaviors across sessions.
+- **Data Transmission**: Send collected data to a server or analytics endpoint.
+- **Performance**: Minimal impact on page load times and resource usage.
+- **Configurability**: Allow users to configure what data to track and where to send it.
+
+### 2.Set Up the Project
+
+```jsx
+/analytics-sdk
+├── /src
+│   ├── index.ts
+│   ├── tracker.ts
+│   ├── session.ts
+│   ├── config.ts
+│   └── utils.ts
+├── package.json
+├── tsconfig.json
+└── README.md
+
+```
+
+### 3. **Create the SDK Core**
+
+- **Detailed API Design:**
+
+  ```jsx
+  AnalyticsSDK = {
+    init: (config) => {},
+    trackEvent: (eventName, properties) => {},
+    trackPageView: (pageData) => {},
+    setUserProperties: (properties) => {},
+  };
+  // Initialize the SDK
+  AnalyticsSDK.init({
+    apiKey: "your-api-key",
+    trackPageViews: true,
+    sessionTimeout: 30,
+  });
+
+  // Track a custom event
+  AnalyticsSDK.trackEvent("button_click", {
+    buttonId: "submit-form",
+    pageSection: "contact-form",
+  });
+
+  // Set user properties
+  AnalyticsSDK.setUserProperties({
+    userId: "12345",
+    userType: "premium",
+  });
+  ```
+
+- **Session Management**
+
+  ```jsx
+  // session.js
+
+  import { v4 as uuidv4 } from "uuid";
+
+  // 假设 defaultConfig 在某处定义
+  const defaultConfig = {
+    sessionTimeout: 30 * 60 * 1000, // 30 minutes in milliseconds
+  };
+
+  export class SessionManager {
+    constructor() {
+      this.sessionId = this.getSessionId() || this.createSession();
+      this.lastActivity = Date.now();
+    }
+
+    createSession() {
+      const newSessionId = uuidv4();
+      localStorage.setItem("sessionId", newSessionId);
+      return newSessionId;
+    }
+
+    getSessionId() {
+      return localStorage.getItem("sessionId");
+    }
+
+    refreshSession() {
+      if (Date.now() - this.lastActivity > defaultConfig.sessionTimeout) {
+        this.sessionId = this.createSession();
+      }
+      this.lastActivity = Date.now();
+    }
+
+    getSession() {
+      return this.sessionId;
+    }
+  }
+  ```
+
+- **Event Tracking Implementation:**
+
+  ```jsx
+  // track.js
+
+  import axios from 'axios';
+  import { SessionManager } from './session';
+
+  const defaultConfig = {
+    apiEndpoint: 'https://your-analytics-api.com/events',
+    batchSize: 10,  // 每批发送的最大事件数
+    flushInterval: 30000  // 自动发送间隔，单位毫秒
+  };
+
+  export class Tracker {
+    constructor(config = {}) {
+      this.config = {...defaultConfig,...config}:
+      this.sessionManager = new SessionManager();
+      this.eventQueue = [];
+      this.flushInterval = null;
+      this.startAutoFlush();
+    }
+
+    trackEvent(event, data) {
+      this.sessionManager.refreshSession();
+      const eventData = {
+        event,
+        data,
+        sessionId: this.sessionManager.getSession(),
+        timestamp: new Date().toISOString()
+      };
+      this.eventQueue.push(eventData);
+
+      if (this.eventQueue.length >= defaultConfig.batchSize) {
+        this.flush();
+      }
+    }
+
+    trackPageView(url) {
+      this.trackEvent('page_view', { url });
+    }
+
+    async flush() {
+      if (this.eventQueue.length === 0) return;
+
+      const events = this.eventQueue.slice();
+      this.eventQueue = [];
+
+      try {
+        await this.sendData(events);
+        console.log(`Successfully sent ${events.length} events`);
+      } catch (error) {
+        console.error('Failed to send analytics data', error);
+        // 发送失败时，将事件放回队列
+        this.eventQueue = events.concat(this.eventQueue);
+      }
+    }
+
+    async sendData(payload) {
+      await axios.post(defaultConfig.apiEndpoint, payload);
+    }
+
+    startAutoFlush() {
+      this.flushInterval = setInterval(() => this.flush(), defaultConfig.flushInterval);
+    }
+
+    stopAutoFlush() {
+      if (this.flushInterval) {
+        clearInterval(this.flushInterval);
+        this.flushInterval = null;
+      }
+    }
+  }
+  ```
+
+- **Make the SDK Usable**
+
+  ```jsx
+  //index.js
+  // src/index.js
+
+  import { Tracker } from "./track";
+
+  export default function initializeAnalyticsSDK(config) {
+    return new Tracker(config);
+  }
+
+  // 在你的应用中引入 SDK
+  import initializeAnalyticsSDK from "analytics-sdk";
+
+  // 初始化 SDK
+  const analytics = initializeAnalyticsSDK({
+    apiEndpoint: "https://your-analytics-api.com/events", // 替换为实际 API 地址
+    batchSize: 20, // 可选: 覆盖默认配置
+    flushInterval: 15000, // 可选: 覆盖默认配置
+  });
+
+  // 追踪一个事件
+  analytics.trackEvent("button_click", { buttonId: "signup" });
+
+  // 追踪页面视图
+  analytics.trackPageView(window.location.href);
+  ```
+
+  ```jsx
+  // src/index.js
+
+  import { Tracker } from "./track";
+
+  class Analytics {
+    constructor() {
+      this.tracker = null;
+    }
+
+    // 简单或高级初始化
+    init(options) {
+      if (typeof options === "string") {
+        // 简单初始化，只使用 API key
+        this.tracker = new Tracker({ apiKey: options });
+      } else if (typeof options === "object") {
+        // 高级初始化，使用配置对象
+        this.tracker = new Tracker(options);
+      } else {
+        throw new Error("Invalid initialization parameters.");
+      }
+      return this; // 返回 this，支持链式调用
+    }
+
+    // 设置用户属性
+    setUserProperty(propertyName, value) {
+      if (!this.tracker) {
+        console.warn(
+          "Analytics not initialized. Please call Analytics.init() first."
+        );
+        return this; // 返回 this，即使没有初始化也支持链式调用
+      }
+      this.tracker.setUserProperty(propertyName, value);
+      return this; // 返回 this，支持链式调用
+    }
+
+    // 追踪事件
+    trackEvent(event, data) {
+      if (!this.tracker) {
+        console.warn(
+          "Analytics not initialized. Please call Analytics.init() first."
+        );
+        return this; // 返回 this，即使没有初始化也支持链式调用
+      }
+      this.tracker.trackEvent(event, data);
+      return this; // 返回 this，支持链式调用
+    }
+
+    // 追踪页面视图
+    trackPageView(url) {
+      if (!this.tracker) {
+        console.warn(
+          "Analytics not initialized. Please call Analytics.init() first."
+        );
+        return this; // 返回 this，即使没有初始化也支持链式调用
+      }
+      this.tracker.trackPageView(url);
+      return this; // 返回 this，支持链式调用
+    }
+  }
+
+  // 导出 Analytics 单例
+  const analyticsInstance = new Analytics();
+  export default analyticsInstance;
+
+  import Analytics from "analytics-sdk";
+
+  // 链式调用示例
+  Analytics.init("YOUR_API_KEY")
+    .setUserProperty("age", 30)
+    .setUserProperty("gender", "female")
+    .trackEvent("button_click", { buttonId: "signup" })
+    .trackPageView(window.location.href);
+  ```
